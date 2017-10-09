@@ -104,7 +104,7 @@ class NumberPuzzle {
     //*****************************
     //randomization should have more alternates
     func randomizePuzzle() {
-        randomSimple()
+        random1()
     }
     
     private func randomSimple() {

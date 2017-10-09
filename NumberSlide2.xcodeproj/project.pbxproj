@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B96389D1F8BC13D0065A960 /* NumberCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B96389C1F8BC13D0065A960 /* NumberCellClass.swift */; };
+		9B9638A01F8C085E0065A960 /* numslider2 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B96389E1F8C08300065A960 /* numslider2 120x120.png */; };
 		9BF9EEB21F8B28B30089D240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF9EEB11F8B28B30089D240 /* AppDelegate.swift */; };
 		9BF9EEB41F8B28B30089D240 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF9EEB31F8B28B30089D240 /* ViewController.swift */; };
 		9BF9EEB71F8B28B30089D240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF9EEB51F8B28B30089D240 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		9B96389C1F8BC13D0065A960 /* NumberCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCellClass.swift; sourceTree = "<group>"; };
+		9B96389E1F8C08300065A960 /* numslider2 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numslider2 120x120.png"; sourceTree = "<group>"; };
 		9BF9EEAE1F8B28B30089D240 /* NumberSlide2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberSlide2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF9EEB11F8B28B30089D240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BF9EEB31F8B28B30089D240 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B96389F1F8C083B0065A960 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B96389E1F8C08300065A960 /* numslider2 120x120.png */,
+			);
+			path = "Supported Files";
+			sourceTree = "<group>";
+		};
 		9BF9EEA51F8B28B30089D240 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +73,7 @@
 				9BF9EEB81F8B28B30089D240 /* Assets.xcassets */,
 				9BF9EEBA1F8B28B30089D240 /* LaunchScreen.storyboard */,
 				9BF9EEBD1F8B28B30089D240 /* Info.plist */,
+				9B96389F1F8C083B0065A960 /* Supported Files */,
 			);
 			path = NumberSlide2;
 			sourceTree = "<group>";
@@ -126,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9638A01F8C085E0065A960 /* numslider2 120x120.png in Resources */,
 				9BF9EEBC1F8B28B30089D240 /* LaunchScreen.storyboard in Resources */,
 				9BF9EEB91F8B28B30089D240 /* Assets.xcassets in Resources */,
 				9BF9EEB71F8B28B30089D240 /* Main.storyboard in Resources */,
@@ -281,11 +293,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZFJ8KCA7SY;
 				INFOPLIST_FILE = NumberSlide2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sachania.prakash.NumberSlide2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -296,11 +309,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZFJ8KCA7SY;
 				INFOPLIST_FILE = NumberSlide2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sachania.prakash.NumberSlide2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

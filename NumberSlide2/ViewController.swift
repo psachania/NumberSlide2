@@ -15,13 +15,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet var numberButtons: [UIButton]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberPuzzle.randomizePuzzle()
         syncViewBasedOnModel()
     }
-
+    
+    @IBAction func resetPressed(_ sender: UIButton) {
+        numberPuzzle.randomizePuzzle()
+        syncViewBasedOnModel()
+        moveCounter = 0 //reset move counter
+        messageLabel.text = "Moves : \(moveCounter)"
+    }
+    
     @IBAction func numberPressed(_ sender: UIButton) {
 
         moveCounter += 1 //increment move counter
