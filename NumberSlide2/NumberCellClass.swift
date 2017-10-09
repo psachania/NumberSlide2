@@ -31,15 +31,22 @@ class NumberPuzzle {
     //read only solution array that holds current position of numbers. user should be able to read it but should not change it. it can be changed by calling checkAndMove method
     private(set) var solution : [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, -1]
     
+    //returns which direction number moved, if it could move
+    enum Direction {
+        case left, up, right, down
+    }
+    
+    //default initializer to randomize puzzle
     init() {
         //randomize puzzle ... may be better design is to leave this decision to the user
         randomizePuzzle()
     }
-    
+
+    //*****************************
     //checks if position can be moved up, down, left or right. It moves if it can and returns new position. If it cant move, it returns -1
-    func checkAndMove(position: Int) -> Int {
+    func checkAndMove(position: Int) -> (newPosition: Int, direction: Direction?) {
         if solution[position] == -1 { //blank position itself cannot be moved
-            return -1
+            return (-1, nil)
         }
         
         //check if it can be moved left
@@ -47,7 +54,7 @@ class NumberPuzzle {
             let temp = solution[position]
             solution[position] = -1
             solution[possibleMoves[position][0]] = temp
-            return possibleMoves[position][0]
+            return (possibleMoves[position][0], Direction.left)
         }
         
         //check if it can be moved up
@@ -55,7 +62,7 @@ class NumberPuzzle {
             let temp = solution[position]
             solution[position] = -1
             solution[possibleMoves[position][1]] = temp
-            return possibleMoves[position][1]
+            return (possibleMoves[position][1], Direction.up)
         }
         
         //check if it can be moved right
@@ -63,7 +70,7 @@ class NumberPuzzle {
             let temp = solution[position]
             solution[position] = -1
             solution[possibleMoves[position][2]] = temp
-            return possibleMoves[position][2]
+            return (possibleMoves[position][2], Direction.right)
         }
         
         //check if it can be moved down
@@ -71,13 +78,14 @@ class NumberPuzzle {
             let temp = solution[position]
             solution[position] = -1
             solution[possibleMoves[position][3]] = temp
-            return possibleMoves[position][3]
+            return (possibleMoves[position][3], Direction.down)
         }
         
         //if none of the adjcent is found empty then return -1 to indicate not found
-        return -1
+        return (-1, nil)
     }
     
+    //*****************************
     //Check if the solutions is solved or not i.e. all numbers are sequential
     func isSolved() -> Bool {
         if solution[15] != -1 { //easy check is that last one should be blank
@@ -93,6 +101,7 @@ class NumberPuzzle {
         return true
     }
     
+    //*****************************
     //randomization should have more alternates
     func randomizePuzzle() {
         randomSimple()
