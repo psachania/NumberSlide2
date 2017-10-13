@@ -8,6 +8,34 @@
 
 import Foundation
 
+/******************************************************************************
+ *** Class name  : NumberPuzzle
+ *** Description : This is model class that encapsulates all aspects of the
+ *** puzzle.
+ ***
+ *** Properties:
+ ***        solution (read-only) : holds current values in a 1x16 array where
+ ***                                each position corresponds to a location on
+ ***                                the puzzle
+ ***        possibleMoves        : 16x4 array that holds possibility of movement
+ ***                                for each possible of the puzzle
+ ***                                x4 = move up, move left, move right, move down
+ ***                                E.g. 1st entry is [-1, -1, 1, 4] means
+ ***                                    move up : -1 = cannot move up
+ ***                                    move left : -1 = cannot move left
+ ***                                    move right : 1 = move to 1 (note that it is 0 based array index
+ ***                                    move down : 4 = move to 4
+ ***
+ *** Methods:
+ ***        checkAndMove()       : In: position number
+ ***                               Out: new position, direction
+ ***                                Function checks if input position can move
+ ***                                in any of the 4 directions. If yes, it returns
+ ***                                new position number and direction (up, left, right, down)
+ ***                                Return -1 if it cannot move
+ ***        isSolved()           : Out: true or false if puzzle is solved
+ ***        randomizePuzzle()    : Randomly selects one of unsolved positions to start the game
+ ******************************************************************************/
 class NumberPuzzle {
     
     //class level read only property
@@ -36,14 +64,28 @@ class NumberPuzzle {
         case left, up, right, down
     }
     
-    //default initializer to randomize puzzle
+    /******************************************************************************
+     *** Function Name  : init()
+     *** In             : None
+     *** Out            : None
+     *** Description    : Default initilizer
+     ***                  Randomizes the solution
+     ******************************************************************************/
     init() {
         //randomize puzzle ... may be better design is to leave this decision to the user
         randomizePuzzle()
     }
 
-    //*****************************
-    //checks if position can be moved up, down, left or right. It moves if it can and returns new position. If it cant move, it returns -1
+    /******************************************************************************
+     *** Function Name  : checkAndMove()
+     *** In             : position number to be checked
+     *** Out            : newPosition - new position number
+     ***                : direction - direction of if move is possible
+     ***
+     *** Description    : Checks if position can be moved up, down, left or right.
+     ***                  It moves if it can and returns new position
+     ***                  If it cant move, it returns -1
+     ******************************************************************************/
     func checkAndMove(position: Int) -> (newPosition: Int, direction: Direction?) {
         if solution[position] == -1 { //blank position itself cannot be moved
             return (-1, nil)
@@ -85,8 +127,14 @@ class NumberPuzzle {
         return (-1, nil)
     }
     
-    //*****************************
-    //Check if the solutions is solved or not i.e. all numbers are sequential
+    /******************************************************************************
+     *** Function Name  : isSolved()
+     *** In             : None
+     *** Out            : Bool - true if solved otherwise false
+     *** Description    : Loops through solution's current values and determins if
+     ***                  solution is found i.e. all numbers are sequential
+     ***                  Returns true if it is solved
+     ******************************************************************************/
     func isSolved() -> Bool {
         if solution[15] != -1 { //easy check is that last one should be blank
             return false
@@ -101,8 +149,14 @@ class NumberPuzzle {
         return true
     }
     
-    //*****************************
-    //randomization should have more alternates
+    /******************************************************************************
+     *** Function Name  : randomizePuzzle()
+     *** In             : None
+     *** Out            : None
+     *** Description    : Randomizes solution and next game starts
+     ***                  Currently limited alternatives are hard coded
+     ***                  In future, this can be based on DB or algo
+     ******************************************************************************/
     func randomizePuzzle() {
         random1()
     }
